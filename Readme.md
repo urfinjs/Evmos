@@ -82,7 +82,9 @@ LimitNOFILE=65535
 WantedBy=multi-user.target" > /etc/systemd/system/evmosdd.service && cat /etc/systemd/system/evmosdd.service
 ```
 
+### Start the node and check journal if everything good, then ctrl+c
 systemctl daemon-reload && systemctl enable evmosdd && systemctl restart evmosdd && journalctl -u evmosdd -f
+
 
 ```
 evmosd tx staking create-validator \
@@ -99,7 +101,7 @@ evmosd tx staking create-validator \
   --from=$EVMOS_WALLET
   ```
 
-## check tx from validator creating above
+### check if the tx from above is successful; if not just run above till success
 evmosd q tx {tx hash from above}
 ###
 
